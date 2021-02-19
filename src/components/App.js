@@ -30,7 +30,7 @@ import React, { useState, useEffect, StrictMode } from "react";
 import "../styles/App.css";
 
 const App = () => {
-  const [count, setCount] = useState(0);
+  const [time, setTime] = useState(0);
   const [renderBall, setRenderBall] = useState(false);
   const [x, setX] = useState(0);
   const [y, setY] = useState(0);
@@ -77,7 +77,7 @@ const App = () => {
 
         function tick() {
 
-              setCount( prevCount => prevCount + 1);
+              setTime( prevTime => prevTime + 1);
         } 
 
   //useEffect
@@ -118,7 +118,7 @@ const App = () => {
                 left: ballPosition.left + "px",
                 top: ballPosition.top + "px"  
             }}></div>
-            <div className="heading-timer">{count}</div>
+            <div className="heading-timer">{time}</div>
             <div className="hole"></div>
             </>
 		} else {
