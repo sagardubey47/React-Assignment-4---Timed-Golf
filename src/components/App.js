@@ -105,9 +105,7 @@ const App = () => {
   } 
 
   const reset = () => {
-    setRenderBall(false); 
-    setBallPosition({left: "0px", top:"0px"});
-    setCount(0);
+     location.reload();
    };
 
   const renderChoice = () => {
