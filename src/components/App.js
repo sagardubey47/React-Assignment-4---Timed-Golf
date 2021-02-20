@@ -76,14 +76,14 @@ const App = () => {
         }
 
         function tick() {
-
-              setTime( prevTime => prevTime + 1);
+              setTime( preTime => preTime + 1);
         } 
 
   //useEffect
 
   useEffect(() => {
-
+           
+      // console.log("useEffect1");
         document.addEventListener("keydown", handleListener);
         setX(ballPosition.left);
         setY(ballPosition.top);
@@ -95,17 +95,26 @@ const App = () => {
         return () => {
             document.removeEventListener("keydown", handleListener);
         } 
-    }, [ballPosition])
+    }, [ballPosition, renderBall])
 
-
+    useEffect(()=> {
+      //console.log("useEffect2");
+      let counter = setInterval(() => {tick()}, 1000);
+     
+      return( () => { 
+       clearInterval(counter);
+      })
+    }, [])
 
   const buttonClickHandler = () => { 
     setRenderBall(true);
-    setInterval(() => {tick()}, 1000);
   } 
 
   const reset = () => {
-     location.reload();
+    setRenderBall(false); 
+    setBallPosition({left: "0px", top:"0px"});
+    setTime(0); 
+    
    };
 
   const renderChoice = () => {
